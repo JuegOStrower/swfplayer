@@ -169,10 +169,10 @@
                 auto load flash anymore, and the old flash libraries can't detect if flash is installed, this tool
                 perfectly works on all the browsers for the last 20 years (IE 5+,1999). It shows any SWF from any
                 website in full screen with some Share & Download buttons (which can be hidden).</p>
-            <p>To add this to your website, see why this is your best choice or read the source code, <a
-                    href="https://github.com/JuegOStrower/swfplayer/wiki">click here</a>.</p>
+            <p>To add this to your website, see why this is your best choice or read the source code, go to <a
+                    href="https://github.com/JuegOStrower/swfplayer/wiki">this link</a>.</p>
             <p>To run a file, add it to the url (like /#file.swf).</p>
-            <p><b>To try this with the example, <a href="#test.swf">click here</a></b></p>
+            <p><b>To try this with the example, go to <a href="#test.swf">this link</a>.</b></p>
         </div>
     </div>
     <div id="navbar">
@@ -244,7 +244,7 @@
                 display();
             } else {
                 var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", location.hash.substring(1));
+                xhttp.open("GET", (swfPlayer.corsProxy?"https://cors-anywhere.herokuapp.com/":"") + location.hash.substring(1));
                 xhttp.responseType = "blob";
                 xhttp.onload = function () {
                     if (this.status !== 200 && this.status !== 304) {
