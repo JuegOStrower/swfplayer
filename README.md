@@ -5,4 +5,4 @@ To add this to your website, see why this is your best choice or read the source
 
 To run a file, add it to the url (like /#file.swf).
 
-To try this with the example, [click here](https://swfplayer.tk/#/test.swf).
+To try this with the example, [click here](https://swfplayer.tk/#https://swfplayer.tk/test.swf).
