@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="This is a super basic online flash player (SWF Player).">
-    <meta name="keywords" content="swf,player,flash,object,free,full">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="favicon.png">
     <title>Loading...</title>
     <script>
         //SWF Player settings
@@ -43,7 +42,7 @@
             font-weight: 700;
             display: none;
         }
-        
+
         #enable a {
             color: dodgerblue;
             cursor: pointer;
@@ -140,6 +139,12 @@
             padding: 0;
             overflow: hidden;
         }
+
+        a.link {
+            cursor: pointer;
+            color: rgb(0, 0, 238);
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -148,16 +153,16 @@
         You have to enable and allow Adobe Flash Player to start. <a onlick="display()">Ready.</a>
     </div>
     <div id="dialogs">
-        <div id="loading" style="display:block;">
+        <div id="loading" style="display:block">
             <h1 id="name">Waiting...</h1>
             <h2>Loading... <span id="per"></span></h2>
         </div>
-        <div id="error" style="display:none;">
+        <div id="error" style="display:none">
             <h1>Error with <span id="name2">the file</span>!</h1>
             <h2 id="errormsg"></h2>
             If you don't know what this means, contact the owner of the website you came from.
         </div>
-        <div id="noflash" style="display:none;">
+        <div id="noflash" style="display:none">
             <h1>Error!</h1>
             <h2>Flash Player not available</h2>
             Flash Player has to be installed and enabled (allowed) to run the file. Why is this happening?
@@ -168,18 +173,16 @@
             </ul>
             <span id="noflashext"></span>
         </div>
-        <div id="welcome" style="display:none;">
+        <div id="welcome" style="display:none">
             <h1>Welcome to SWF Player!</h1>
             <p><b>If you don't know why you are seeing this, contact the owner of the website you came from.</b></p>
             <h2>What is this?</h2>
             <p>SWF Player is a super basic online flash player. I did this tool because modern browsers (2019) doesn't
                 auto load flash anymore, and the old flash libraries can't detect if flash is installed, this tool
-                perfectly works on all the browsers for the last 20 years (IE 5+,1999). It shows any SWF from any
+                perfectly works on all the browsers for the last 20 years (IE 5+, 1999). It shows any SWF from any
                 website in full screen with some Share & Download buttons (which can be hidden).</p>
-            <p>To add this to your website, see why this is your best choice or read the source code, go to <a
-                    href="https://github.com/JuegOStrower/swfplayer/wiki">this link</a>.</p>
-            <p>To run a file, add it to the url (like /#file.swf).</p>
-            <p><b>To try this with the example, go to <a href="#https://swfplayer.tk/test.swf">this link</a>.</b></p>
+            <p>To run a file, add it to the url (like /#file.swf). You can also <a onclick="openTest();" class="link">try with the example</a>.</p>
+            <p><small>To add this to your website, see why this is your best choice or read the source code, go to <a href="https://github.com/maxiostro/swfplayer/">our GitHub repo</a>.</small></p>
         </div>
     </div>
     <div id="navbar">
@@ -325,13 +328,10 @@
                         document.getElementById("navbar-other").href = "https://www.addtoany.com/share#title=" +
                             encodeURIComponent(document.title) + "&url=" + encodeURIComponent(location.hash.substring(
                                 1));
-                        document.getElementById("navbar-hide").onclick = function () {
-                            if (this.parentNode.className == '') {
-                                this.parentNode.className = 'navclose';
-                            } else {
-                                this.parentNode.className = '';
-                            }
-                        }
+                        document.getElementById("navbar-hide").onclick = function() {
+                            if (this.parentNode.getAttribute('class') == '') this.parentNode.setAttribute('class', 'navclose');
+                            else this.parentNode.setAttribute('class', '');
+                        };
                         document.getElementById("navbar").style.display = "block";
                     }
                     document.getElementById("dialogs").parentNode.removeChild(document.getElementById("dialogs"));
@@ -353,11 +353,13 @@
         window.onhashchange = function () {
             window.location.reload();
         }
+        function openTest(){
+            window.location.hash = window.location.href.split("#")[0] + "#test.swf";
+        }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82877528-19"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }

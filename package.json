@@ -1,0 +1,36 @@
+{
+  "name": "swfplayer",
+  "version": "1.0.0",
+  "description": "SWF Player is a super basic online flash player. I did this tool because modern browsers (2019) doesn't auto load flash anymore, and the old flash libraries can't detect if flash is installed, this tool perfectly works on all the browsers for the last 20 years (IE 5+,1999). It shows any SWF from any website in full screen with some Share & Download buttons (which can be hidden).",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "start:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxiostro/swfplayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxiostro/swfplayer/issues"
+  },
+  "homepage": "https://github.com/maxiostro/swfplayer#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^1.3.2",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {}
+}
